@@ -329,7 +329,7 @@
             return swipers;
         }
         
-        // Save instance in container HTML Element and in data
+        // Save instance in container html Element and in data
         s.container[0].swiper = s;
         s.container.data('swiper', s);
         

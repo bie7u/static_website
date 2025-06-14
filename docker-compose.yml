@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8111:80"
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+
