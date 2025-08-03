@@ -1,0 +1,76 @@
+/* Global CSS styles for the Vue SPA */
+
+/* Import vendor CSS */
+@import url('/vendor/bootstrap/css/bootstrap.min.css');
+@import url('/vendor/simple-line-icons/simple-line-icons.min.css');
+@import url('/vendor/swiper/css/swiper.min.css');
+
+/* Import theme styles */
+@import './animate.css';
+@import './layout.min.css';
+
+/* Bootstrap grid system */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.col-sm-4 {
+  flex: 0 0 33.333333%;
+  padding: 0 15px;
+}
+
+.col-sm-6 {
+  flex: 0 0 50%;
+  padding: 0 15px;
+}
+
+.col-sm-8 {
+  flex: 0 0 66.666667%;
+  padding: 0 15px;
+}
+
+.col-sm-12 {
+  flex: 0 0 100%;
+  padding: 0 15px;
+}
+
+@media (max-width: 768px) {
+  .col-sm-4,
+  .col-sm-6,
+  .col-sm-8 {
+    flex: 0 0 100%;
+  }
+}
+
+/* Custom global overrides */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Hind', sans-serif;
+}
+
+/* Override any absolute positioning issues with Vue routing */
+.router-link-active {
+  /* Add any active link styles here */
+}
+
+/* Ensure smooth transitions between routes */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
