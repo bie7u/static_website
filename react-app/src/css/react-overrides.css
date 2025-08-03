@@ -1,0 +1,121 @@
+/* React-specific CSS overrides and additions */
+
+/* React-specific styles */
+.animated {
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.fadeInLeft {
+  animation-name: fadeInLeft;
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Carousel specific styles for React */
+.carousel.slide {
+  position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner .item {
+  position: relative;
+  display: none;
+  transition: 0.6s ease-in-out left;
+}
+
+.carousel-inner .item.active {
+  display: block;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  z-index: 15;
+  width: auto;
+  padding-left: 0;
+  margin-left: -30px;
+  text-align: center;
+  list-style: none;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 0;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.carousel-indicators li.active,
+.carousel-indicators li:hover {
+  background-color: #fff;
+}
+
+/* Back to top button visibility */
+.back-to-top.visible {
+  visibility: visible !important;
+  opacity: 0.6 !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* Mobile menu styles */
+.navbar-collapse.in {
+  display: block !important;
+}
+
+/* Filter buttons */
+.filter-buttons .btn-theme {
+  transition: all 0.3s ease;
+}
+
+/* FAQ styles */
+.faq-item {
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.faq-question {
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background: #e9ecef;
+}
