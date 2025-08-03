@@ -1,0 +1,48 @@
+{% load static %}
+
+<div class="content-lg container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="product-details-card">
+                {% if product %}
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img class="img-responsive" src="{% static 'img/555x400/01.jpg' %}" alt="{{ product.name }}">
+                    </div>
+                    <div class="col-sm-6">
+                        <h3>{{ product.name }}</h3>
+                        <p class="margin-b-20">{{ product.description }}</p>
+                        <div class="product-price margin-b-20">
+                            <span class="price h4">{{ product.price }}</span>
+                        </div>
+                        <div class="margin-b-20">
+                            <button class="btn btn-theme btn-theme-sm margin-r-10">Add to Cart</button>
+                            <button class="btn btn-default btn-theme-sm" 
+                                    hx-target="#product-details-modal"
+                                    hx-swap="innerHTML"
+                                    onclick="this.parentElement.parentElement.parentElement.parentElement.parentElement.innerHTML = ''">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="alert alert-warning">
+                    Product not found.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.product-details-card {
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+</style>

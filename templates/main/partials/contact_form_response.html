@@ -1,0 +1,9 @@
+{% if success %}
+<div class="alert alert-success" role="alert">
+    <strong>Thank you, {{ name }}!</strong> Your message has been sent successfully. We'll get back to you soon.
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+    <strong>Error!</strong> There was a problem sending your message. Please try again.
+</div>
+{% endif %}

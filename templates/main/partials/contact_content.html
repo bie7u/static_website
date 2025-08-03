@@ -1,0 +1,85 @@
+{% load static %}
+
+<!--========== PARALLAX ==========-->
+<div class="parallax-window" data-parallax="scroll" data-image-src="{% static 'img/1920x1080/01.jpg' %}">
+    <div class="parallax-content container">
+        <h1 class="carousel-title">Contact Us</h1>
+        <p>Get in touch with our team</p>
+    </div>
+</div>
+<!--========== PARALLAX ==========-->
+
+<!--========== PAGE LAYOUT ==========-->
+<!-- Contact -->
+<div class="content-lg container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h2>Send us a message</h2>
+            <p class="margin-b-50">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+            <!-- Contact Form -->
+            <form id="contact-form" 
+                  hx-post="{% url 'main:contact' %}"
+                  hx-target="#form-response"
+                  hx-swap="innerHTML">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="name">Name <span class="color-red">*</span></label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="email">Email <span class="color-red">*</span></label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message <span class="color-red">*</span></label>
+                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-theme btn-theme-sm">
+                    <span class="htmx-indicator">Sending...</span>
+                    Send Message
+                </button>
+            </form>
+
+            <!-- Form Response Area -->
+            <div id="form-response" class="margin-t-20">
+                <!-- HTMX responses will appear here -->
+            </div>
+        </div>
+        
+        <div class="col-sm-4">
+            <h2>Get in touch</h2>
+            <div class="margin-b-30">
+                <h4>Address</h4>
+                <p>123 Main Street<br>
+                   City, State 12345<br>
+                   United States</p>
+            </div>
+            
+            <div class="margin-b-30">
+                <h4>Phone</h4>
+                <p>+1 (555) 123-4567</p>
+            </div>
+            
+            <div class="margin-b-30">
+                <h4>Email</h4>
+                <p>info@asentus.com</p>
+            </div>
+            
+            <div class="margin-b-30">
+                <h4>Business Hours</h4>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                   Saturday: 10:00 AM - 4:00 PM<br>
+                   Sunday: Closed</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Contact -->
+<!--========== END PAGE LAYOUT ==========-->

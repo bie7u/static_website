@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Products - Metronic "Asentus" Frontend{% endblock %}
+
+{% block content %}
+<!--========== PARALLAX ==========-->
+<div class="parallax-window" data-parallax="scroll" data-image-src="{% static 'img/1920x1080/01.jpg' %}">
+    <div class="parallax-content container">
+        <h1 class="carousel-title">Our Products</h1>
+        <p>Discover our amazing range of products and services</p>
+    </div>
+</div>
+<!--========== PARALLAX ==========-->
+
+<!--========== PAGE LAYOUT ==========-->
+<!-- Products -->
+<div class="content-lg container">
+    <div class="row margin-b-40">
+        <div class="col-sm-6">
+            <h2>Our Product Range</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+    </div>
+    <!--// end row -->
+
+    <!-- Product Grid -->
+    <div class="row" id="product-grid">
+        {% for product in products %}
+        <div class="col-sm-4 sm-margin-b-50">
+            <div class="margin-b-20">
+                <img class="img-responsive" src="{% static 'img/397x400/01.jpg' %}" alt="Product Image">
+            </div>
+            <h4><a href="#">{{ product.name }}</a></h4>
+            <p class="margin-b-5">{{ product.description }}</p>
+            <div class="product-price">
+                <span class="price">{{ product.price }}</span>
+            </div>
+            <button class="btn btn-theme btn-theme-sm" 
+                    hx-get="{% url 'main:product_details' product.id %}"
+                    hx-target="#product-details-modal"
+                    hx-trigger="click">
+                View Details
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+    <!--// end row -->
+
+    <!-- Load More Products Button -->
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <button class="btn btn-theme btn-theme-sm" 
+                    hx-get="{% url 'main:products' %}?page=2"
+                    hx-target="#product-grid"
+                    hx-swap="beforeend"
+                    hx-trigger="click">
+                Load More Products
+            </button>
+        </div>
+    </div>
+</div>
+<!-- End Products -->
+
+<!-- Product Details Modal -->
+<div id="product-details-modal" class="margin-b-40">
+    <!-- HTMX will load product details here -->
+</div>
+
+<!--========== END PAGE LAYOUT ==========-->
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Initialize product grid after HTMX loads new content
+    document.body.addEventListener('htmx:afterSwap', function(evt) {
+        if (evt.target.id === 'product-grid') {
+            // Re-initialize any product-specific JavaScript
+            console.log('Product grid updated via HTMX');
+        }
+    });
+</script>
+{% endblock %}

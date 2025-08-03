@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Pricing - Metronic "Asentus" Frontend{% endblock %}
+
+{% block content %}
+<!--========== PARALLAX ==========-->
+<div class="parallax-window" data-parallax="scroll" data-image-src="{% static 'img/1920x1080/01.jpg' %}">
+    <div class="parallax-content container">
+        <h1 class="carousel-title">Pricing</h1>
+        <p>Choose the perfect plan for your needs</p>
+    </div>
+</div>
+<!--========== PARALLAX ==========-->
+
+<!--========== PAGE LAYOUT ==========-->
+<!-- Pricing -->
+<div class="content-lg container">
+    <div class="row text-center margin-b-40">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h2>Our Pricing Plans</h2>
+            <p>Select from our flexible pricing options</p>
+        </div>
+    </div>
+    <!--// end row -->
+
+    <div class="row">
+        <div class="col-sm-4 sm-margin-b-50">
+            <div class="pricing-plan">
+                <div class="pricing-header">
+                    <h3>Basic</h3>
+                    <div class="pricing-price">
+                        <span class="currency">$</span>
+                        <span class="price">29</span>
+                        <span class="period">/month</span>
+                    </div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li>5 Projects</li>
+                        <li>10GB Storage</li>
+                        <li>Email Support</li>
+                        <li>Basic Analytics</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <button class="btn btn-theme btn-theme-sm">Choose Plan</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 sm-margin-b-50">
+            <div class="pricing-plan featured">
+                <div class="pricing-header">
+                    <h3>Professional</h3>
+                    <div class="pricing-price">
+                        <span class="currency">$</span>
+                        <span class="price">59</span>
+                        <span class="period">/month</span>
+                    </div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li>25 Projects</li>
+                        <li>100GB Storage</li>
+                        <li>Priority Support</li>
+                        <li>Advanced Analytics</li>
+                        <li>API Access</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <button class="btn btn-theme btn-theme-sm">Choose Plan</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 sm-margin-b-50">
+            <div class="pricing-plan">
+                <div class="pricing-header">
+                    <h3>Enterprise</h3>
+                    <div class="pricing-price">
+                        <span class="currency">$</span>
+                        <span class="price">99</span>
+                        <span class="period">/month</span>
+                    </div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li>Unlimited Projects</li>
+                        <li>1TB Storage</li>
+                        <li>24/7 Phone Support</li>
+                        <li>Custom Analytics</li>
+                        <li>Full API Access</li>
+                        <li>Custom Integrations</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <button class="btn btn-theme btn-theme-sm">Choose Plan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// end row -->
+</div>
+<!-- End Pricing -->
+<!--========== END PAGE LAYOUT ==========-->
+{% endblock %}
+
+{% block extra_head %}
+<style>
+.pricing-plan {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.pricing-plan:hover {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+.pricing-plan.featured {
+    border-color: #007bff;
+    transform: scale(1.05);
+}
+.pricing-header h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.pricing-price {
+    margin-bottom: 30px;
+}
+.pricing-price .currency,
+.pricing-price .price {
+    font-size: 48px;
+    font-weight: bold;
+    color: #007bff;
+}
+.pricing-price .period {
+    font-size: 16px;
+    color: #666;
+}
+.pricing-features ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+.pricing-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+.pricing-features li:last-child {
+    border-bottom: none;
+}
+</style>
+{% endblock %}
