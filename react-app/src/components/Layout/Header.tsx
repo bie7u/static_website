@@ -6,6 +6,9 @@ const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Check if current page is home page (has hero carousel)
+  const isHomePage = location.pathname === '/';
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 60);
@@ -16,13 +19,15 @@ const Header: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Update body class based on scroll state
-    if (isScrolled) {
+    // Update body class based on scroll state and page type
+    // On inner pages (non-home), always show the page-on-scroll state
+    // On home page, only show it when scrolled
+    if (!isHomePage || isScrolled) {
       document.body.classList.add('page-on-scroll');
     } else {
       document.body.classList.remove('page-on-scroll');
     }
-  }, [isScrolled]);
+  }, [isScrolled, isHomePage]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
